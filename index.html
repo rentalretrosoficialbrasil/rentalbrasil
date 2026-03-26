@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Retros | Locação de Máquinas e Serviços</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Anton para títulos grossos e Roboto para textos -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F2994A', /* Laranja do topo */
+                            yellow: '#E6C641', /* Amarelo das letras e linhas */
+                            black: '#111111',
+                            red: '#ED474A',    /* Menu icon color */
+                            darkred: '#4A1515',/* Quem somos color */
+                            textred: '#C24A4A' /* Texto quem somos */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        heading: ['Anton', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilo idêntico ao título das máquinas no print */
+        .title-outline {
+            color: #E6C641;
+            -webkit-text-stroke: 1px #000000;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
+            letter-spacing: 0.05em;
+        }
+
+        /* Efeito para imagens com fundo branco mesclarem com a página */
+        .blend-multiply {
+            mix-blend-mode: multiply;
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-800 antialiased">
+
+    <!-- Topo Laranja idêntico ao Print -->
+    <header class="bg-brand-orange w-full sticky top-0 z-50 shadow-md">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- Logotipo Rental Retros -->
+            <div class="flex flex-col">
+                <div class="flex items-end leading-none">
+                    <!-- Letra R grande -->
+                    <span class="text-brand-yellow font-heading text-[5rem] leading-[0.75]">R</span>
+                    <!-- Restante das palavras -->
+                    <div class="flex flex-col text-brand-black font-heading text-4xl leading-[0.85] tracking-wide pb-1">
+                        <span>ENTAL</span>
+                        <span>ETROS</span>
+                    </div>
+                </div>
+                <!-- Divisor amarelo sutil embaixo do nome -->
+                <div class="flex mt-1">
+                    <div class="h-1.5 w-12 bg-brand-yellow"></div>
+                    <div class="h-1.5 w-2 bg-brand-yellow mx-0.5 transform -skew-x-12"></div>
+                    <div class="h-1.5 w-2 bg-brand-yellow transform -skew-x-12"></div>
+                </div>
+                <!-- Subtítulo -->
+                <span class="text-brand-black text-[10px] sm:text-xs font-bold tracking-tighter mt-1 font-sans">
+                    LOCAÇÃO DE MÁQUINAS E SERVIÇOS
+                </span>
+            </div>
+
+            <!-- Menu Hamburger (Vermelho igual ao print) -->
+            <button class="text-brand-red p-2 hover:bg-black/10 rounded transition-colors focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Botão de Voltar ao Topo (Círculo Preto do print) -->
+    <button onclick="window.scrollTo(0,0)" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-brand-darkred text-white rounded-full shadow-lg flex items-center justify-center hover:bg-black transition-colors border-2 border-white">
+        <i data-lucide="chevron-up" class="w-8 h-8 font-bold"></i>
+    </button>
+
+    <!-- Componente de Linhas Separadoras -->
+    <template id="divider-template">
+        <div class="flex flex-col gap-2 my-8 w-full max-w-4xl mx-auto px-4">
+            <div class="flex items-center w-full">
+                <div class="h-3 w-full bg-brand-yellow"></div>
+                <div class="h-3 w-6 bg-brand-yellow mx-2 transform -skew-x-12"></div>
+                <div class="h-3 w-6 bg-brand-yellow transform -skew-x-12"></div>
+            </div>
+            <div class="flex items-center w-full">
+                <div class="h-3 w-full bg-brand-yellow"></div>
+                <div class="h-3 w-6 bg-brand-yellow mx-2 transform -skew-x-12"></div>
+                <div class="h-3 w-6 bg-brand-yellow transform -skew-x-12"></div>
+            </div>
+        </div>
+    </template>
+
+    <main class="w-full">
+        <!-- CATÁLOGO DE MÁQUINAS -->
+        <section class="py-4">
+            
+            <!-- Inserindo a primeira linha divisória via JS no final do arquivo -->
+            <div class="divider-container"></div>
+
+            <!-- 1. Tratores de Esteira -->
+            <div class="text-center mb-12">
+                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
+                    Tratores de Esteira
+                </h2>
+                <div class="max-w-3xl mx-auto px-4">
+                    <!-- ========================================== -->
+                    <!-- QUANDO TIVER A FOTO DO TRATOR DE ESTEIRA:  -->
+                    <!-- Mude o link 'src' abaixo para o nome da sua foto (ex: trator-esteira.jpg) -->
+                    <!-- ========================================== -->
+                    <img src="https://images.unsplash.com/photo-1581094380962-421eb19965a3?auto=format&fit=crop&q=80&w=800" 
+                         alt="" 
+                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <div class="divider-container"></div>
+
+            <!-- 2. Caminhões Cabine Suplementar -->
+            <div class="text-center mb-12">
+                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-2">
+                    Caminhões Cabine
+                </h2>
+                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
+                    Suplementar
+                </h2>
+                <div class="max-w-3xl mx-auto px-4">
+                    <!-- ========================================== -->
+                    <!-- QUANDO TIVER A FOTO DO CAMINHÃO CABINE:    -->
+                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
+                    <!-- ========================================== -->
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" 
+                         alt="" 
+                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <div class="divider-container"></div>
+
+            <!-- 3. Tratores de Pneu -->
+            <div class="text-center mb-12">
+                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
+                    Tratores de Pneu
+                </h2>
+                <div class="max-w-3xl mx-auto px-4">
+                    <!-- ========================================== -->
+                    <!-- QUANDO TIVER A FOTO DO TRATOR DE PNEU:     -->
+                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
+                    <!-- ========================================== -->
+                    <img src="https://images.unsplash.com/photo-1592968605481-9b1675122137?auto=format&fit=crop&q=80&w=800" 
+                         alt="" 
+                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <div class="divider-container"></div>
+
+            <!-- 4. Caminhões Basculante -->
+            <div class="text-center mb-12">
+                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
+                    Caminhões Basculante
+                </h2>
+                <div class="max-w-3xl mx-auto px-4">
+                    <!-- ========================================== -->
+                    <!-- QUANDO TIVER A FOTO DO CAMINHÃO BASCULANTE:-->
+                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
+                    <!-- ========================================== -->
+                    <img src="https://images.unsplash.com/photo-1603504859868-466d3f23a54b?auto=format&fit=crop&q=80&w=800" 
+                         alt="" 
+                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <div class="divider-container"></div>
+
+            <!-- 5. Escavadeiras Hidráulica -->
+            <div class="text-center mb-12">
+                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
+                    Escavadeiras Hidráulica
+                </h2>
+                <div class="max-w-3xl mx-auto px-4">
+                    <!-- ========================================== -->
+                    <!-- QUANDO TIVER A FOTO DA ESCAVADEIRA:        -->
+                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
+                    <!-- ========================================== -->
+                    <img src="https://images.unsplash.com/photo-1541888086925-920a0b2d6a45?auto=format&fit=crop&q=80&w=800" 
+                         alt="" 
+                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <div class="divider-container"></div>
+
+            <!-- Botão Mostre Mais -->
+            <div class="text-center mb-16">
+                <a href="#" class="inline-block text-gray-700 font-bold uppercase tracking-wide border-b border-gray-700 hover:text-brand-orange transition-colors">
+                    Mostre Mais
+                </a>
+            </div>
+
+        </section>
+
+        <!-- SEÇÃO QUEM SOMOS -->
+        <section class="py-12 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <!-- Texto superior da imagem -->
+                <div class="px-6 mb-8">
+                    <p class="text-brand-textred text-xl sm:text-2xl font-medium leading-relaxed mb-4">
+                        Instalação de vias férreas.
+                    </p>
+                    <p class="text-brand-textred text-xl sm:text-2xl font-medium leading-relaxed">
+                        Atualmente temos distribuídos nossos maquinários e efetivo em 9 estados brasileiros: Minas Gerais, Paraná, Santa Catarina, Pará, Tocantins, Ceará, Paraíba, Rio Grande do Sul e São Paulo.
+                    </p>
+                </div>
+
+                <!-- Imagem Paisagem -->
+                <div class="w-full">
+                    <!-- ========================================== -->
+                    <!-- QUANDO TIVER A FOTO DO "QUEM SOMOS":       -->
+                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
+                    <!-- ========================================== -->
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200" 
+                         alt="" 
+                         class="w-full h-[300px] sm:h-[400px] object-cover border-y-4 border-gray-100">
+                </div>
+
+                <!-- Título Quem Somos -->
+                <div class="text-center mt-12 mb-8 px-4">
+                    <h2 class="font-heading text-5xl sm:text-6xl text-brand-darkred tracking-wider uppercase">
+                        Quem Somos
+                    </h2>
+                    <div class="w-24 h-3 bg-brand-orange mx-auto mt-4"></div>
+                </div>
+                
+                <div class="px-6 text-center text-gray-400 font-medium pb-12">
+                    <p>oferece soluções em terraplanagem e...</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-black py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Rental Retros. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Inicializar ícones
+        lucide.createIcons();
+
+        // Inserir os divisores desenhados (linhas amarelas tracejadas)
+        document.addEventListener('DOMContentLoaded', () => {
+            const template = document.getElementById('divider-template');
+            const containers = document.querySelectorAll('.divider-container');
+            
+            containers.forEach(container => {
+                container.appendChild(template.content.cloneNode(true));
+            });
+        });
+    </script>
+</body>
+</html>
