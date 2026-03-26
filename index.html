@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rental Retros | Locação de Máquinas e Serviços</title>
+    <title>Rental Retros | Peças e Serviços</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Montserrat para um visual moderno e corporativo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Anton para títulos grossos e Roboto para textos -->
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,24 +17,22 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Config -->
+    <!-- Tailwind Config com as novas cores Azul e Laranja -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            orange: '#F2994A', /* Laranja do topo */
-                            yellow: '#E6C641', /* Amarelo das letras e linhas */
-                            black: '#111111',
-                            red: '#ED474A',    /* Menu icon color */
-                            darkred: '#4A1515',/* Quem somos color */
-                            textred: '#C24A4A' /* Texto quem somos */
+                            blue: '#2563EB',      /* Azul Royal do Hero */
+                            darkblue: '#1E3A8A',  /* Azul Escuro das faixas e setores */
+                            orange: '#F97316',    /* Laranja principal */
+                            darkorange: '#EA580C',/* Laranja escuro para hover */
+                            lightbg: '#F8FAFC'    /* Fundo cinza muito claro */
                         }
                     },
                     fontFamily: {
-                        sans: ['Roboto', 'sans-serif'],
-                        heading: ['Anton', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
                     }
                 }
             }
@@ -42,249 +40,319 @@
     </script>
 
     <style>
-        /* Estilo idêntico ao título das máquinas no print */
-        .title-outline {
-            color: #E6C641;
-            -webkit-text-stroke: 1px #000000;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
-            letter-spacing: 0.05em;
-        }
-
-        /* Efeito para imagens com fundo branco mesclarem com a página */
-        .blend-multiply {
-            mix-blend-mode: multiply;
+        /* Sombra personalizada para os cartões de benefícios */
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body class="font-sans bg-white text-gray-800 antialiased">
+<body class="font-sans bg-brand-lightbg text-gray-800 antialiased">
 
-    <!-- Topo Laranja idêntico ao Print -->
-    <header class="bg-brand-orange w-full sticky top-0 z-50 shadow-md">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-            
-            <!-- Logotipo Rental Retros -->
+    <!-- Faixa de Marcas Parceiras (Topo) -->
+    <div class="w-full bg-white border-b border-gray-200 py-3 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs md:text-sm font-bold text-brand-darkblue opacity-80 uppercase tracking-widest gap-6 overflow-x-auto whitespace-nowrap hide-scrollbar">
+            <span>Mahle</span>
+            <span>Mann Filter</span>
+            <span>APC</span>
+            <span>CEP</span>
+            <span>Corteco</span>
+            <span>CTP</span>
+            <span>Dana</span>
+            <span>Dellarosa</span>
+            <span>Donaldson</span>
+            <span>Ecoplan</span>
+        </div>
+    </div>
+
+    <!-- Navegação / Logótipo -->
+    <header class="bg-white w-full sticky top-0 z-50 shadow-sm py-4">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <!-- Novo Logo em Azul e Laranja -->
             <div class="flex flex-col">
-                <div class="flex items-end leading-none">
-                    <!-- Letra R grande -->
-                    <span class="text-brand-yellow font-heading text-[5rem] leading-[0.75]">R</span>
-                    <!-- Restante das palavras -->
-                    <div class="flex flex-col text-brand-black font-heading text-4xl leading-[0.85] tracking-wide pb-1">
+                <div class="flex items-center leading-none">
+                    <span class="text-brand-orange font-black text-[4rem] leading-[0.75]">R</span>
+                    <div class="flex flex-col text-brand-darkblue font-black text-2xl leading-[0.85] tracking-tight ml-1">
                         <span>ENTAL</span>
                         <span>ETROS</span>
                     </div>
                 </div>
-                <!-- Divisor amarelo sutil embaixo do nome -->
-                <div class="flex mt-1">
-                    <div class="h-1.5 w-12 bg-brand-yellow"></div>
-                    <div class="h-1.5 w-2 bg-brand-yellow mx-0.5 transform -skew-x-12"></div>
-                    <div class="h-1.5 w-2 bg-brand-yellow transform -skew-x-12"></div>
-                </div>
-                <!-- Subtítulo -->
-                <span class="text-brand-black text-[10px] sm:text-xs font-bold tracking-tighter mt-1 font-sans">
-                    LOCAÇÃO DE MÁQUINAS E SERVIÇOS
+                <span class="text-brand-darkblue text-[9px] font-bold tracking-widest mt-2 uppercase">
+                    Peças para Tratores e Motores
                 </span>
             </div>
 
-            <!-- Menu Hamburger (Vermelho igual ao print) -->
-            <button class="text-brand-red p-2 hover:bg-black/10 rounded transition-colors focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
+            <!-- Menu Button -->
+            <button class="text-brand-darkblue hover:text-brand-orange p-2 transition-colors focus:outline-none">
+                <i data-lucide="menu" class="w-8 h-8"></i>
             </button>
         </div>
     </header>
 
-    <!-- Botão de Voltar ao Topo (Círculo Preto do print) -->
-    <button onclick="window.scrollTo(0,0)" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-brand-darkred text-white rounded-full shadow-lg flex items-center justify-center hover:bg-black transition-colors border-2 border-white">
+    <!-- Hero Section (Azul Royal) -->
+    <section class="bg-brand-blue w-full py-16 md:py-24 relative overflow-hidden">
+        <!-- Fundo decorativo abstrato -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 text-[20rem] font-black leading-none text-white">M</div>
+            <div class="absolute bottom-10 right-10 text-[20rem] font-black leading-none text-white">R</div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center gap-12">
+            <!-- Imagem do Produto no Pedestal -->
+            <div class="w-full md:w-1/2 flex justify-center">
+                <div class="relative w-full max-w-md lg:max-w-lg mt-4 md:mt-0">
+                    <!-- FOTO: Trator de Esteira D140B -->
+                    <img src="img/trator-d140b.png" 
+                         alt="Trator de Esteira D140B" 
+                         class="w-full h-auto drop-shadow-2xl object-contain mix-blend-multiply hover:scale-105 transition-transform duration-500">
+                    
+                    <!-- Etiqueta com o nome do trator -->
+                    <div class="absolute -bottom-20 left-0 right-0 text-center z-30">
+                        <span class="bg-brand-orange text-white px-5 py-2 rounded-full text-sm md:text-base font-bold shadow-xl border-2 border-white uppercase tracking-wider">
+                            Trator de Esteira D140B
+                        </span>
+                    </div>
+
+                    <!-- Base do pedestal estilizada -->
+                    <div class="absolute -bottom-4 left-0 right-0 h-16 bg-blue-500 rounded-lg transform scale-105 -z-10 shadow-lg border-t border-blue-400"></div>
+                    <div class="absolute -bottom-12 left-4 right-4 h-16 bg-blue-600 rounded-lg -z-20 shadow-xl border-t border-blue-500"></div>
+                </div>
+            </div>
+
+            <!-- Textos Hero -->
+            <div class="w-full md:w-1/2 text-white text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-2">
+                    Potência e eficiência
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-medium mb-6">
+                    para o seu sistema com peças Rental Retros
+                </h2>
+                
+                <div class="inline-block border border-white/50 px-6 py-2 rounded-full text-sm font-semibold tracking-wide mb-8">
+                    A SOLUÇÃO IDEAL
+                </div>
+
+                <p class="text-blue-100 text-lg md:text-xl mb-10 max-w-md mx-auto md:mx-0 font-medium">
+                    A solução perfeita para manter seus equipamentos funcionando com a máxima performance.
+                </p>
+
+                <a href="#" class="inline-block border-2 border-white text-white hover:bg-white hover:text-brand-blue px-8 py-4 rounded-lg font-bold text-lg transition-colors">
+                    Fale já com os nossos vendedores!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção: Oferecemos o Melhor (Mascote/Sobre) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12 bg-brand-darkblue rounded-3xl overflow-hidden pr-0 md:pr-12 shadow-xl">
+                
+                <!-- Lado da Imagem (Mascote/Especialista) -->
+                <div class="w-full md:w-2/5 bg-brand-lightbg relative">
+                    <!-- Forma arredondada combinando com o fundo azul escuro -->
+                    <div class="absolute inset-0 bg-brand-darkblue rounded-br-[100px] z-0"></div>
+                    <!-- FOTO: Especialista/Atendimento -->
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800" 
+                         alt="" 
+                         class="relative z-10 w-full h-[400px] object-cover rounded-br-[100px] shadow-lg">
+                </div>
+
+                <!-- Lado do Texto -->
+                <div class="w-full md:w-3/5 text-white py-12 px-6 md:px-0">
+                    <h2 class="text-3xl md:text-4xl font-black mb-6 uppercase tracking-wide">
+                        Oferecemos o<br/>melhor para você!
+                    </h2>
+                    
+                    <div class="space-y-4 text-blue-100 font-medium leading-relaxed">
+                        <p>
+                            Desde 1974, a Rental Retros tem sido sinônimo de qualidade e inovação. Nossa equipe de especialistas está sempre pronta para ouvir suas necessidades e oferecer soluções personalizadas, garantindo suporte técnico de excelência em todas as etapas.
+                        </p>
+                        <p>
+                            Estamos comprometidos em trazer o que há de melhor no mercado nacional e internacional. Trabalhamos com produtos inovadores e de alta qualidade, selecionados para atender às demandas mais exigentes dos setores agrícola, de construção e mineração.
+                        </p>
+                        <p>
+                            Com três unidades estrategicamente localizadas e uma frota própria, asseguramos agilidade e segurança em nossas entregas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faixas de Marcas (Laranja e Azul) -->
+    <section class="py-8 bg-brand-lightbg space-y-4 max-w-7xl mx-auto px-4">
+        
+        <!-- Faixa Laranja (Reposição) -->
+        <div class="bg-brand-orange rounded-xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-md">
+            <div class="flex items-center gap-4 w-full md:w-1/3">
+                <i data-lucide="wrench" class="w-12 h-12 text-white flex-shrink-0"></i>
+                <h3 class="text-white font-black text-xl leading-tight uppercase">Peças de<br/>Reposição<br/>Para:</h3>
+            </div>
+            <div class="w-full md:w-2/3 text-white font-bold text-center md:text-right tracking-wider opacity-90 text-sm md:text-base leading-loose">
+                CASE | CATERPILLAR | JOHN DEERE<br/>
+                NEW HOLLAND | KOMATSU | JCB | CUMMINS | HYUNDAI
+            </div>
+        </div>
+
+        <!-- Faixa Azul (Motores) -->
+        <div class="bg-brand-darkblue rounded-xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-md">
+            <div class="flex items-center gap-4 w-full md:w-1/3">
+                <i data-lucide="cpu" class="w-12 h-12 text-white flex-shrink-0"></i>
+                <h3 class="text-white font-black text-xl leading-tight uppercase">Peças Para<br/>Motores:</h3>
+            </div>
+            <div class="w-full md:w-2/3 text-white font-bold text-center md:text-right tracking-wider opacity-90 text-sm md:text-base">
+                CUMMINS | FPT | MWM | PERKINS
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Cartões de Diferenciais -->
+    <section class="py-20 bg-brand-lightbg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 mt-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 pt-12 relative card-shadow border border-gray-100 mt-6 md:mt-0 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-brand-darkblue border-4 border-brand-orange rounded-full flex items-center justify-center">
+                        <i data-lucide="shield-check" class="text-brand-orange w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-brand-darkblue font-black text-xl uppercase mb-4 text-center mt-2">Tradição</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed text-center">
+                        Confia em quem é especialista! Estamos desde 1974 no segmento de peças de reposição para tratores e motores pesados.
+                    </p>
+                    <div class="w-8 h-1 bg-gray-300 mx-auto mt-6"></div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 pt-12 relative card-shadow border border-gray-100 mt-6 md:mt-0 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-brand-darkblue border-4 border-brand-orange rounded-full flex items-center justify-center">
+                        <i data-lucide="package" class="text-brand-orange w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-brand-darkblue font-black text-xl uppercase mb-4 text-center mt-2">Distribuição</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed text-center">
+                        Com sede em São Paulo e filiais estratégicas, atendemos todas as regiões do Brasil com rapidez e segurança.
+                    </p>
+                    <div class="w-8 h-1 bg-gray-300 mx-auto mt-6"></div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 pt-12 relative card-shadow border border-gray-100 mt-6 md:mt-0 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-brand-darkblue border-4 border-brand-orange rounded-full flex items-center justify-center">
+                        <i data-lucide="dollar-sign" class="text-brand-orange w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-brand-darkblue font-black text-xl uppercase mb-4 text-center mt-2">Custo Benefício</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed text-center">
+                        As melhores marcas nacionais e importadas, com condições de pagamento que melhor se enquadram à sua demanda.
+                    </p>
+                    <div class="w-8 h-1 bg-gray-300 mx-auto mt-6"></div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl p-8 pt-12 relative card-shadow border border-gray-100 mt-6 md:mt-0 hover:-translate-y-2 transition-transform duration-300">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-brand-darkblue border-4 border-brand-orange rounded-full flex items-center justify-center">
+                        <i data-lucide="headset" class="text-brand-orange w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-brand-darkblue font-black text-xl uppercase mb-4 text-center mt-2">Atendimento Campeão</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed text-center">
+                        Nossa equipe de especialistas vai te auxiliar durante todo o processo de compra, garantindo sempre o melhor negócio.
+                    </p>
+                    <div class="w-8 h-1 bg-gray-300 mx-auto mt-6"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Setores Atendidos -->
+    <section class="py-20 bg-brand-darkblue">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-white text-3xl md:text-4xl font-black text-center uppercase tracking-wider mb-12">
+                Setores Atendidos
+            </h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+
+                <!-- Setor 2: Construtora -->
+                <div class="bg-[#1e293b] rounded-xl overflow-hidden shadow-lg group border border-gray-700">
+                    <div class="h-32 md:h-40 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=400" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center border-t border-brand-orange">
+                        <h3 class="text-white font-bold text-sm md:text-base uppercase">Construtora</h3>
+                    </div>
+                </div>
+
+                <!-- Setor 4: Mecânicos e Oficinas -->
+                <div class="bg-[#1e293b] rounded-xl overflow-hidden shadow-lg group border border-gray-700">
+                    <div class="h-32 md:h-40 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=400" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center border-t border-brand-orange">
+                        <h3 class="text-white font-bold text-sm md:text-base uppercase">Mecânicos e Oficinas</h3>
+                    </div>
+                </div>
+
+                <!-- Setor 5: Mineração -->
+                <div class="bg-[#1e293b] rounded-xl overflow-hidden shadow-lg group border border-gray-700">
+                    <div class="h-32 md:h-40 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579487785973-74d2ca7abdd5?auto=format&fit=crop&q=80&w=400" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center border-t border-brand-orange">
+                        <h3 class="text-white font-bold text-sm md:text-base uppercase">Mineração</h3>
+                    </div>
+                </div>
+
+                <!-- Setor 8: Terraplanagem -->
+                <div class="bg-[#1e293b] rounded-xl overflow-hidden shadow-lg group border border-gray-700">
+                    <div class="h-32 md:h-40 w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=400" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                    </div>
+                    <div class="p-4 text-center border-t border-brand-orange">
+                        <h3 class="text-white font-bold text-sm md:text-base uppercase">Terraplanagem</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Botão Flutuante (Voltar ao Topo) -->
+    <button onclick="window.scrollTo(0,0)" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-brand-orange text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-darkorange transition-colors border-2 border-white">
         <i data-lucide="chevron-up" class="w-8 h-8 font-bold"></i>
     </button>
 
-    <!-- Componente de Linhas Separadoras -->
-    <template id="divider-template">
-        <div class="flex flex-col gap-2 my-8 w-full max-w-4xl mx-auto px-4">
-            <div class="flex items-center w-full">
-                <div class="h-3 w-full bg-brand-yellow"></div>
-                <div class="h-3 w-6 bg-brand-yellow mx-2 transform -skew-x-12"></div>
-                <div class="h-3 w-6 bg-brand-yellow transform -skew-x-12"></div>
-            </div>
-            <div class="flex items-center w-full">
-                <div class="h-3 w-full bg-brand-yellow"></div>
-                <img src="6.png" alt="Trator de Esteira" style="width:100%; max-width:500px; border-radius: 10px; margin: 10px 0;">
-                <div class="h-3 w-6 bg-brand-yellow transform -skew-x-12"></div>
-            </div>
-        </div>
-    </template>
-
-    <main class="w-full">
-        <!-- CATÁLOGO DE MÁQUINAS -->
-        <section class="py-4">
+    <!-- Footer com Endereço -->
+    <footer class="bg-[#111827] py-10 text-center text-gray-400 text-sm">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col items-center gap-6">
             
-            <!-- Inserindo a primeira linha divisória via JS no final do arquivo -->
-            <div class="divider-container"></div>
-
-            <!-- 1. Tratores de Esteira -->
-            <div class="text-center mb-12">
-                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
-                    Tratores de Esteira
-                </h2>
-                <div class="max-w-3xl mx-auto px-4">
-                    <!-- ========================================== -->
-                    <!-- QUANDO TIVER A FOTO DO TRATOR DE ESTEIRA:  -->
-                    <!-- Mude o link 'src' abaixo para o nome da sua foto (ex: trator-esteira.jpg) -->
-                    <!-- ========================================== -->
-                    <img src="https://images.unsplash.com/photo-1581094380962-421eb19965a3?auto=format&fit=crop&q=80&w=800" 
-                         alt="" 
-                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
+            <div class="flex flex-col items-center opacity-90 mb-2">
+                <div class="flex items-center leading-none">
+                    <span class="text-brand-orange font-black text-5xl leading-[0.75]">R</span>
+                    <div class="flex flex-col text-white font-black text-xl leading-[0.85] tracking-tight ml-1 text-left">
+                        <span>ENTAL</span>
+                        <span>ETROS</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="divider-container"></div>
-
-            <!-- 2. Caminhões Cabine Suplementar -->
-            <div class="text-center mb-12">
-                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-2">
-                    Caminhões Cabine
-                </h2>
-                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
-                    Suplementar
-                </h2>
-                <div class="max-w-3xl mx-auto px-4">
-                    <!-- ========================================== -->
-                    <!-- QUANDO TIVER A FOTO DO CAMINHÃO CABINE:    -->
-                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
-                    <!-- ========================================== -->
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" 
-                         alt="" 
-                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
-                </div>
+            <!-- Endereço solicitado -->
+            <div class="font-medium leading-relaxed text-gray-300">
+                <p>Rua João Pessoa, 533 Conjunto 11</p>
+                <p>Paquetá - Santos - SP</p>
+                <p>CEP 11013-003</p>
             </div>
-
-            <div class="divider-container"></div>
-
-            <!-- 3. Tratores de Pneu -->
-            <div class="text-center mb-12">
-                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
-                    Tratores de Pneu
-                </h2>
-                <div class="max-w-3xl mx-auto px-4">
-                    <!-- ========================================== -->
-                    <!-- QUANDO TIVER A FOTO DO TRATOR DE PNEU:     -->
-                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
-                    <!-- ========================================== -->
-                    <img src="https://images.unsplash.com/photo-1592968605481-9b1675122137?auto=format&fit=crop&q=80&w=800" 
-                         alt="" 
-                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
-                </div>
-            </div>
-
-            <div class="divider-container"></div>
-
-            <!-- 4. Caminhões Basculante -->
-            <div class="text-center mb-12">
-                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
-                    Caminhões Basculante
-                </h2>
-                <div class="max-w-3xl mx-auto px-4">
-                    <!-- ========================================== -->
-                    <!-- QUANDO TIVER A FOTO DO CAMINHÃO BASCULANTE:-->
-                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
-                    <!-- ========================================== -->
-                    <img src="https://images.unsplash.com/photo-1603504859868-466d3f23a54b?auto=format&fit=crop&q=80&w=800" 
-                         alt="" 
-                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
-                </div>
-            </div>
-
-            <div class="divider-container"></div>
-
-            <!-- 5. Escavadeiras Hidráulica -->
-            <div class="text-center mb-12">
-                <h2 class="font-heading italic text-4xl sm:text-5xl uppercase title-outline px-4 mb-6">
-                    Escavadeiras Hidráulica
-                </h2>
-                <div class="max-w-3xl mx-auto px-4">
-                    <!-- ========================================== -->
-                    <!-- QUANDO TIVER A FOTO DA ESCAVADEIRA:        -->
-                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
-                    <!-- ========================================== -->
-                    <img src="https://images.unsplash.com/photo-1541888086925-920a0b2d6a45?auto=format&fit=crop&q=80&w=800" 
-                         alt="" 
-                         class="w-full max-w-md mx-auto object-contain h-64 sm:h-80 blend-multiply hover:scale-105 transition-transform duration-300">
-                </div>
-            </div>
-
-            <div class="divider-container"></div>
-
-            <!-- Botão Mostre Mais -->
-            <div class="text-center mb-16">
-                <a href="#" class="inline-block text-gray-700 font-bold uppercase tracking-wide border-b border-gray-700 hover:text-brand-orange transition-colors">
-                    Mostre Mais
-                </a>
-            </div>
-
-        </section>
-
-        <!-- SEÇÃO QUEM SOMOS -->
-        <section class="py-12 bg-white">
-            <div class="max-w-4xl mx-auto">
-                <!-- Texto superior da imagem -->
-                <div class="px-6 mb-8">
-                    <p class="text-brand-textred text-xl sm:text-2xl font-medium leading-relaxed mb-4">
-                        Instalação de vias férreas.
-                    </p>
-                    <p class="text-brand-textred text-xl sm:text-2xl font-medium leading-relaxed">
-                        Atualmente temos distribuídos nossos maquinários e efetivo em 9 estados brasileiros: Minas Gerais, Paraná, Santa Catarina, Pará, Tocantins, Ceará, Paraíba, Rio Grande do Sul e São Paulo.
-                    </p>
-                </div>
-
-                <!-- Imagem Paisagem -->
-                <div class="w-full">
-                    <!-- ========================================== -->
-                    <!-- QUANDO TIVER A FOTO DO "QUEM SOMOS":       -->
-                    <!-- Mude o link 'src' abaixo para o nome da sua foto -->
-                    <!-- ========================================== -->
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200" 
-                         alt="" 
-                         class="w-full h-[300px] sm:h-[400px] object-cover border-y-4 border-gray-100">
-                </div>
-
-                <!-- Título Quem Somos -->
-                <div class="text-center mt-12 mb-8 px-4">
-                    <h2 class="font-heading text-5xl sm:text-6xl text-brand-darkred tracking-wider uppercase">
-                        Quem Somos
-                    </h2>
-                    <div class="w-24 h-3 bg-brand-orange mx-auto mt-4"></div>
-                </div>
-                
-                <div class="px-6 text-center text-gray-400 font-medium pb-12">
-                    <p>oferece soluções em terraplanagem e...</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-brand-black py-8 text-center text-gray-500 text-sm">
-        <p>&copy; 2026 Rental Retros. Todos os direitos reservados.</p>
+            
+            <div class="w-16 h-px bg-gray-700"></div>
+            
+            <p>&copy; 2026 Rental Retros. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Inicializar ícones
+        // Inicializar ícones do Lucide
         lucide.createIcons();
-
-        // Inserir os divisores desenhados (linhas amarelas tracejadas)
-        document.addEventListener('DOMContentLoaded', () => {
-            const template = document.getElementById('divider-template');
-            const containers = document.querySelectorAll('.divider-container');
-            
-            containers.forEach(container => {
-                container.appendChild(template.content.cloneNode(true));
-            });
-        });
     </script>
 </body>
 </html>
